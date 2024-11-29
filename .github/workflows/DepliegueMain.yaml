@@ -1,0 +1,38 @@
+name: Python CI/CD Workflow
+
+# Configuración para que el flujo de trabajo se ejecute cuando se haga push o pull request en la rama 'main'
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    # El trabajo se ejecutará en un contenedor Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+    # Paso 1: Checkout del código fuente
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Paso 2: Configuración de Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'  # Usar la última versión de Python 3
+
+    # Paso 3: Instalar dependencias
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # Si tienes dependencias en un archivo 'requirements.txt', descomenta la siguiente línea:
+        # pip install -r requirements.txt
+
+    # Paso 4: Ejecutar pruebas (si las tienes configuradas en el proyecto)
+    - name: Run script
+      run: |
+        python spell_library_console.py

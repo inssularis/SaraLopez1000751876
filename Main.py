@@ -6,3 +6,4 @@ def add_spell():
     spell = {"name": name, "level": level, "description": description}
     spell_library.append(spell)
     print(f"✨ Hechizo '{name}' agregado exitosamente!")
+    print("Excelente trabajo")

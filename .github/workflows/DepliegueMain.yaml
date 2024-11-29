@@ -35,4 +35,4 @@ jobs:
     # Paso 4: Ejecutar pruebas (si las tienes configuradas en el proyecto)
     - name: Run script
       run: |
-        python spell_library_console.py
+        python Main.py
